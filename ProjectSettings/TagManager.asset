@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Shop
+  - Coin
+  - RedCow
+  - Wings
+  - Glue
   layers:
   - Default
   - TransparentFX
