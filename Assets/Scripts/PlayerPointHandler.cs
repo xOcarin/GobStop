@@ -9,10 +9,12 @@ using UnityEngine.SceneManagement;
 public class PlayerPointHandler : MonoBehaviour
 {
     public int coinCounter = 0; // coin counter
+    public int gobCounter = 0; // coin counter
 
     // Text stuff
     [SerializeField]
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI gobText;
 
     
     // Start is called before the first frame update
@@ -24,7 +26,8 @@ public class PlayerPointHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //coinText.text = coinCounter.ToString();
+        coinText.text = "Coins: " + coinCounter.ToString();
+        gobText.text = "Gobs: " + gobCounter.ToString();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,15 +43,17 @@ public class PlayerPointHandler : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 coinCounter = coinCounter - 3;
+                gobCounter++;
             }
         }
         else if (collision.gameObject.tag == "fire")
         {
-            //death
+            SceneManager.LoadScene("DEATH");
         }
         else if (collision.gameObject.tag == "saw")
         {
-            //death
+            SceneManager.LoadScene("DEATH");
+
         }
     }
 }
