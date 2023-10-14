@@ -154,7 +154,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1751148183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1001 &141197141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -394,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 497613489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9569545, y: 1.0999998, z: -10}
+  m_LocalPosition: {x: -3.9580417, y: 1.0999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -488,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9569545, y: 1.0999998, z: -10}
+  m_LocalPosition: {x: -3.9580417, y: 1.0999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5826,6 +5825,7 @@ GameObject:
   - component: {fileID: 1751148180}
   - component: {fileID: 1751148179}
   - component: {fileID: 1751148184}
+  - component: {fileID: 1751148185}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -5955,8 +5955,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.39603546, g: 0.7169812, b: 0.36187258, a: 1}
+  m_Sprite: {fileID: -1252511318, guid: dd28dba0fef58b14f81774ada0afb5da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5996,6 +5996,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCounter: 0
   coinText: {fileID: 0}
+--- !u!95 &1751148185
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751148178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c237d12c2aca9f04e9656781e9390414, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1805705146
 PrefabInstance:
   m_ObjectHideFlags: 0
