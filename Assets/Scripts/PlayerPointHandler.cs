@@ -42,5 +42,13 @@ public class PlayerPointHandler : MonoBehaviour
                 coinCounter = coinCounter - 3;
             }
         }
+        else if (collision.gameObject.tag == "fire")
+        {
+            //death
+        }
+        else if (collision.gameObject.tag == "saw")
+        {
+            //death
+        }
     }
 }
