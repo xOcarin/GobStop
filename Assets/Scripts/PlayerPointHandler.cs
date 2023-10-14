@@ -9,12 +9,14 @@ using UnityEngine.SceneManagement;
 public class PlayerPointHandler : MonoBehaviour
 {
     public int coinCounter = 0; // coin counter
-    public int gobCounter = 0; // coin counter
+    public int gobCounter = 0; // gob counter
+    public int coinsNeeded = 1; // gob counter
 
     // Text stuff
     [SerializeField]
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI gobText;
+    public TextMeshProUGUI needText;
 
     
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class PlayerPointHandler : MonoBehaviour
     {
         coinText.text = "Coins: " + coinCounter.ToString();
         gobText.text = "Gobs: " + gobCounter.ToString();
+        needText.text = "Price " + coinsNeeded.ToString();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,11 +42,12 @@ public class PlayerPointHandler : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Shop")
         {
-            if (coinCounter >= 3)// player has enough points to buy a gob
+            if (coinCounter >= coinsNeeded)// player has enough points to buy a gob
             {
                 Destroy(collision.gameObject);
-                coinCounter = coinCounter - 3;
+                coinCounter = 0;
                 gobCounter++;
+                coinsNeeded++;
             }
         }
         else if (collision.gameObject.tag == "fire")
