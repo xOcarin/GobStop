@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CoinScript : MonoBehaviour
+public class GlueScript : MonoBehaviour
 {
     [SerializeField]
     // Prefabs
-    public GameObject coinPrefab;
+    public GameObject gluePrefab;
 
     // GameObjects
     public PlayerPointHandler handler;
@@ -21,6 +21,6 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //coinText.text = coinCounter.ToString();
+        
     }
 }

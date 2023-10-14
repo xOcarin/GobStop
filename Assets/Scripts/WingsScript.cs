@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CoinScript : MonoBehaviour
+public class WingsScript : MonoBehaviour
 {
     [SerializeField]
     // Prefabs
-    public GameObject coinPrefab;
+    public GameObject wingsPrefab;
 
     // GameObjects
     public PlayerPointHandler handler;
@@ -23,4 +23,5 @@ public class CoinScript : MonoBehaviour
     {
         //coinText.text = coinCounter.ToString();
     }
+
 }
