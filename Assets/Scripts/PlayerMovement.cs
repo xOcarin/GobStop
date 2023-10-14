@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-
         // Horizontal movement
         float horizontalInput = Input.GetAxis("Horizontal"); // Updated input axis to "Horizontal"
         float targetSpeed = horizontalInput * maxMoveSpeed;

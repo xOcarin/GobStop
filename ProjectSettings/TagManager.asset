@@ -11,11 +11,13 @@ TagManager:
   - RedCow
   - Wings
   - Glue
+  - fire
+  - saw
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - groundLayer
   - Water
   - UI
   - 
@@ -45,6 +47,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: groundLayer
+    uniqueID: 1377640101
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 3053301961
     locked: 0
