@@ -3,7 +3,12 @@ guid: 3ba1c904bd462b049a7a49459b94c767
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - coinText: {instanceID: 0}
+  - gobText: {instanceID: 0}
+  - needText: {instanceID: 0}
+  - ProfessorPrefab: {fileID: 6299862328216697805, guid: 19026647d4a03194f83311e15275654c, type: 3}
+  - Professor: {fileID: 6299862328216697805, guid: 19026647d4a03194f83311e15275654c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerPointHandler : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class PlayerPointHandler : MonoBehaviour
     public TextMeshProUGUI gobText;
     public TextMeshProUGUI needText;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +48,8 @@ public class PlayerPointHandler : MonoBehaviour
                 coinCounter = 0;
                 gobCounter++;
                 coinsNeeded++;
+
+                // move the professor and despawn all gobs on screen
             }
         }
         else if (collision.gameObject.tag == "fire")
