@@ -19,7 +19,7 @@ public class ProfessorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(SpawnCycleGobs());
+        StartCoroutine(SpawnCycleGobs());
     }
 
     // Update is called once per frame
