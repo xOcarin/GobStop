@@ -19,6 +19,10 @@ public class PlayerPointHandler : MonoBehaviour
     public TextMeshProUGUI gobText;
     public TextMeshProUGUI needText;
 
+    public GameObject ProfessorPrefab;
+
+    public GameObject Professor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,7 @@ public class PlayerPointHandler : MonoBehaviour
                 gobCounter++;
                 coinsNeeded++;
 
+                Destroy(Professor);
                 // move the professor and despawn all gobs on screen
             }
         }

@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class ProfessorScript : MonoBehaviour
 {
+    public int spawnedCount = 0;
     [SerializeField]
     // Prefabs
     public GameObject gobPrefab;
@@ -18,7 +19,7 @@ public class ProfessorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnCycleGobs());
+        //StartCoroutine(SpawnCycleGobs());
     }
 
     // Update is called once per frame
@@ -33,9 +34,12 @@ public class ProfessorScript : MonoBehaviour
     {
         while (true)
         {
-            StartCoroutine(SpawnGobs());
-            float time = 1f + UnityEngine.Random.value * 6f;
-            yield return new WaitForSeconds(time);
+            if (spawnedCount <= 6)
+            {
+                StartCoroutine(SpawnGobs());
+                float time = 1f + UnityEngine.Random.value * 6f;
+                yield return new WaitForSeconds(time);
+            }
         }
     }
 
@@ -47,7 +51,7 @@ public class ProfessorScript : MonoBehaviour
         Rigidbody2D rb = newGob.GetComponent<Rigidbody2D>();
 
         rb.AddForce(GobScript.forceDirection * 100, ForceMode2D.Force);
-
+        spawnedCount++;
         yield return new WaitForSeconds(5);
     }
 
