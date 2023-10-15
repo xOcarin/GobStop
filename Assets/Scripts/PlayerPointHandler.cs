@@ -59,5 +59,9 @@ public class PlayerPointHandler : MonoBehaviour
             SceneManager.LoadScene("DEATH");
 
         }
+        else if (collision.gameObject.tag == "gob")
+        {
+            SceneManager.LoadScene("DEATH");
+        }
     }
 }
