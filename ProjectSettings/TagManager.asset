@@ -13,6 +13,7 @@ TagManager:
   - Glue
   - fire
   - saw
+  - gob
   layers:
   - Default
   - TransparentFX
