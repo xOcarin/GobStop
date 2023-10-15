@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isWalking;
 
+    // power ups
+    public int gravityCounter = 0;
+    public int glueCounter = 0;
+    public int bounceCounter = 0;
+    bool milkDrank;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -70,6 +77,36 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        if (rb.gravityScale == 0)
+        {
+            gravityCounter++;
+        }
+        if (gravityCounter == 250)
+        {
+            rb.gravityScale = 1;
+        }
+
+        if (maxMoveSpeed == 3.5f)
+        {
+            glueCounter++;
+        }
+
+        if (glueCounter == 400)
+        {
+            maxMoveSpeed = 7.0f;
+        }
+
+        if (milkDrank)
+        {
+            bounceCounter++;
+        }
+
+        if (bounceCounter == 1000)
+        {
+            milkDrank = false;
+        }
+
     }
 
     // This is just to show the grounded circle in the editor
@@ -77,5 +114,28 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Glue")
+        {                        
+            Destroy(collision.gameObject);
+            maxMoveSpeed = 3.5f;
+        }
+        else if (collision.gameObject.tag == "Wings")
+        {
+            Destroy(collision.gameObject);
+            rb.gravityScale = 0;
+        }
+        else if (collision.gameObject.tag == "RedCow")
+        {
+            Destroy(collision.gameObject);
+            milkDrank = true;
+        }
+        else if (collision.gameObject.tag == "Ground" && milkDrank)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 8.0f);
+        }
     }
 }
