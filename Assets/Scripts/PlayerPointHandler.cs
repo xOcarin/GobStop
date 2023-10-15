@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerPointHandler : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class PlayerPointHandler : MonoBehaviour
     public TextMeshProUGUI gobText;
     public TextMeshProUGUI needText;
 
-    
+    public GameObject ProfessorPrefab;
+
+    public GameObject Professor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,9 @@ public class PlayerPointHandler : MonoBehaviour
                 coinCounter = 0;
                 gobCounter++;
                 coinsNeeded++;
+
+                Destroy(Professor);
+                // move the professor and despawn all gobs on screen
             }
         }
         else if (collision.gameObject.tag == "fire")
@@ -58,6 +65,10 @@ public class PlayerPointHandler : MonoBehaviour
         {
             SceneManager.LoadScene("DEATH");
 
+        }
+        else if (collision.gameObject.tag == "gob")
+        {
+            SceneManager.LoadScene("DEATH");
         }
     }
 }
