@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isWalking;
 
+    // power ups
+    public bool wingsTouched;
+    public bool glueTouched;
+    public bool milkDrank;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -70,6 +76,24 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        if (wingsTouched)
+        {
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
+
+        if (glueTouched)
+        {
+            maxMoveSpeed = 3.5f;
+        }
+        else
+        {
+            maxMoveSpeed = 7.0f;
+        }
     }
 
     // This is just to show the grounded circle in the editor
@@ -77,5 +101,49 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Glue")
+        {                        
+            Destroy(collision.gameObject);
+            StartCoroutine(GlueDelay());
+        }
+        else if (collision.gameObject.tag == "Wings")
+        {
+            Destroy(collision.gameObject);
+                StartCoroutine(WingsDelay());
+        }
+        else if (collision.gameObject.tag == "RedCow")
+        {
+            Destroy(collision.gameObject);
+           StartCoroutine(CowDelay());
+        }
+        else if (collision.gameObject.tag == "Ground" && milkDrank == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 8.0f);
+        }
+
+        IEnumerator GlueDelay()
+        {
+            glueTouched = true;
+            yield return new WaitForSeconds(8.0f);
+            glueTouched = false;
+        }
+
+        IEnumerator WingsDelay()
+        {
+            wingsTouched = true;
+            yield return new WaitForSeconds(4.0f);
+            wingsTouched = false;
+        }
+
+        IEnumerator CowDelay()
+        {
+            milkDrank = true;
+            yield return new WaitForSeconds(8.0f);
+            milkDrank = false;
+        }
     }
 }

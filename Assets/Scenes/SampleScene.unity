@@ -6709,6 +6709,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 125575370}
+  wingsTouched: 0
+  glueTouched: 0
+  milkDrank: 0
 --- !u!212 &1751148182
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6792,9 +6795,9 @@ MonoBehaviour:
   coinCounter: 0
   gobCounter: 0
   coinsNeeded: 3
-  coinText: {fileID: 899043443}
-  gobText: {fileID: 1079929650}
-  needText: {fileID: 1849532595}
+  coinText: {fileID: 0}
+  gobText: {fileID: 0}
+  needText: {fileID: 0}
 --- !u!95 &1751148185
 Animator:
   serializedVersion: 5
@@ -7569,7 +7572,6 @@ SceneRoots:
   - {fileID: 1913084883}
   - {fileID: 189468382}
   - {fileID: 670352617}
-  - {fileID: 1111068971}
   - {fileID: 273606897}
   - {fileID: 192698098}
   - {fileID: 1596104411}
