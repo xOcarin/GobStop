@@ -19,10 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isWalking;
 
     // power ups
-    public int gravityCounter = 0;
-    public int glueCounter = 0;
-    public int bounceCounter = 0;
-    bool milkDrank;
+    public bool wingsTouched;
+    public bool glueTouched;
+    public bool milkDrank;
 
 
     private void Start()
@@ -78,35 +77,23 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
-        if (rb.gravityScale == 0)
+        if (wingsTouched)
         {
-            gravityCounter++;
+            rb.gravityScale = 0;
         }
-        if (gravityCounter == 250)
+        else
         {
             rb.gravityScale = 1;
         }
 
-        if (maxMoveSpeed == 3.5f)
+        if (glueTouched)
         {
-            glueCounter++;
+            maxMoveSpeed = 3.5f;
         }
-
-        if (glueCounter == 400)
+        else
         {
             maxMoveSpeed = 7.0f;
         }
-
-        if (milkDrank)
-        {
-            bounceCounter++;
-        }
-
-        if (bounceCounter == 1000)
-        {
-            milkDrank = false;
-        }
-
     }
 
     // This is just to show the grounded circle in the editor
@@ -121,21 +108,42 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Glue")
         {                        
             Destroy(collision.gameObject);
-            maxMoveSpeed = 3.5f;
+            StartCoroutine(GlueDelay());
         }
         else if (collision.gameObject.tag == "Wings")
         {
             Destroy(collision.gameObject);
-            rb.gravityScale = 0;
+                StartCoroutine(WingsDelay());
         }
         else if (collision.gameObject.tag == "RedCow")
         {
             Destroy(collision.gameObject);
-            milkDrank = true;
+           StartCoroutine(CowDelay());
         }
-        else if (collision.gameObject.tag == "Ground" && milkDrank)
+        else if (collision.gameObject.tag == "Ground" && milkDrank == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, 8.0f);
+        }
+
+        IEnumerator GlueDelay()
+        {
+            glueTouched = true;
+            yield return new WaitForSeconds(8.0f);
+            glueTouched = false;
+        }
+
+        IEnumerator WingsDelay()
+        {
+            wingsTouched = true;
+            yield return new WaitForSeconds(4.0f);
+            wingsTouched = false;
+        }
+
+        IEnumerator CowDelay()
+        {
+            milkDrank = true;
+            yield return new WaitForSeconds(8.0f);
+            milkDrank = false;
         }
     }
 }
