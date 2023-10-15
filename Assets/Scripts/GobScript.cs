@@ -22,7 +22,6 @@ public class GobScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // gobs should be spawned by a professor
         rb.AddForce(forceDirection * forceMagnitude);   // moves gobs
     }
 }
