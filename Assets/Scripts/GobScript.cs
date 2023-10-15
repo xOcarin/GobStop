@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GobScript : MonoBehaviour
 {
-    public Vector2 forceDirection = Vector2.left;   // adjust the direction of gobs
-    public float forceMagnitude = 0.5f;             // adjust the speed of gobs
+    public static Vector2 forceDirection = Vector2.left;   // adjust the direction of gobs
+    public float forceMagnitude = 1.0f;             // adjust the speed of gobs
     private Rigidbody2D rb;
 
     [SerializeField]
