@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 191004659327272453}
   - component: {fileID: 6808061035651013901}
   - component: {fileID: -2151622950553632632}
+  - component: {fileID: 5575243267173086041}
   m_Layer: 0
   m_Name: Gob
   m_TagString: gob
@@ -148,3 +149,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5575243267173086041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164001307479064495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc1ba60cfc556547a91e701ff71ebaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceMagnitude: 0.5
+  gobPrefab: {fileID: 0}

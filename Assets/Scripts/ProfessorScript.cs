@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class ProfessorScript : MonoBehaviour
 {
-    public int spawnedCount = 0;
     [SerializeField]
     // Prefabs
     public GameObject gobPrefab;
@@ -25,7 +24,6 @@ public class ProfessorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // potentially change the position of the professor here??
     }
 
@@ -34,12 +32,9 @@ public class ProfessorScript : MonoBehaviour
     {
         while (true)
         {
-            if (spawnedCount <= 6)
-            {
-                StartCoroutine(SpawnGobs());
-                float time = 1f + UnityEngine.Random.value * 6f;
-                yield return new WaitForSeconds(time);
-            }
+            StartCoroutine(SpawnGobs());
+            float time = 1f + UnityEngine.Random.value * 6f;
+            yield return new WaitForSeconds(time);
         }
     }
 
@@ -51,7 +46,6 @@ public class ProfessorScript : MonoBehaviour
         Rigidbody2D rb = newGob.GetComponent<Rigidbody2D>();
 
         rb.AddForce(GobScript.forceDirection * 100, ForceMode2D.Force);
-        spawnedCount++;
         yield return new WaitForSeconds(5);
     }
 

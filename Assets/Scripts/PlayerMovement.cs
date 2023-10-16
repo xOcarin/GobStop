@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private bool isGrounded;
+
     [SerializeField]
     private Transform groundCheck;
 
