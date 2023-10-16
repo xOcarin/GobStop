@@ -53,6 +53,7 @@ public class PlayerPointHandler : MonoBehaviour
                 gobCounter++;
                 coinsNeeded++;
 
+                
                 Destroy(Professor);
                 // move the professor and despawn all gobs on screen
             }

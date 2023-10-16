@@ -8,7 +8,7 @@ MonoImporter:
   - gobText: {instanceID: 0}
   - needText: {instanceID: 0}
   - ProfessorPrefab: {fileID: 6299862328216697805, guid: 19026647d4a03194f83311e15275654c, type: 3}
-  - Professor: {instanceID: 0}
+  - Professor: {fileID: 6299862328216697805, guid: 19026647d4a03194f83311e15275654c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
