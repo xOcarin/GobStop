@@ -49,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1); // Flip horizontally
-        }
-
+        } 
         // Handle animations
         if (isGrounded)
         {
+            Debug.Log("isGrounded");
             anim.SetBool("isJumping", false);
         }
         else
