@@ -18,7 +18,7 @@ public class PlayerPointHandler : MonoBehaviour
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI gobText;
     public TextMeshProUGUI needText;
-
+    public AudioClip collectSound;
     public GameObject ProfessorPrefab;
 
     public GameObject Professor;
@@ -35,6 +35,11 @@ public class PlayerPointHandler : MonoBehaviour
         coinText.text = "Coins: " + coinCounter.ToString();
         gobText.text = "Gobs: " + gobCounter.ToString();
         needText.text = "Price " + coinsNeeded.ToString();
+
+        if (gobCounter == 10)
+        {
+            SceneManager.LoadScene("WIN");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +48,7 @@ public class PlayerPointHandler : MonoBehaviour
         {
             Destroy(collision.gameObject);
             coinCounter++;
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
         }
         else if (collision.gameObject.tag == "Shop")
         {

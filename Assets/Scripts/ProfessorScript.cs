@@ -34,12 +34,9 @@ public class ProfessorScript : MonoBehaviour
     {
         while (true)
         {
-            if (spawnedCount <= 6)
-            {
                 StartCoroutine(SpawnGobs());
                 float time = 1f + UnityEngine.Random.value * 6f;
                 yield return new WaitForSeconds(time);
-            }
         }
     }
 

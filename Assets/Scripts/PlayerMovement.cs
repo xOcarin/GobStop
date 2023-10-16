@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float maxMoveSpeed = 7f;
-    public float jumpForce = 10f;
+    public float jumpForce = 7f;
     public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
     private Animator anim;
@@ -53,15 +53,15 @@ public class PlayerMovement : MonoBehaviour
         // Handle animations
         if (isGrounded)
         {
-            Debug.Log("isGrounded");
             anim.SetBool("isJumping", false);
         }
         else
         {
             anim.SetBool("isJumping", true);
+            anim.SetBool("isWalking", false);
         }
 
-        if (Mathf.Abs(horizontalInput) > 0)
+        if (Mathf.Abs(horizontalInput) != 0 && isGrounded)
         {
             anim.SetBool("isWalking", true);
         }
@@ -79,16 +79,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (wingsTouched)
         {
-            rb.gravityScale = 0;
+            if (Input.GetButtonDown("Jump"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+
+            jumpForce = 5f;
         }
         else
         {
-            rb.gravityScale = 1;
+            jumpForce = 9f;
         }
 
         if (glueTouched)
         {
-            maxMoveSpeed = 3.5f;
+            maxMoveSpeed = 2f;
         }
         else
         {

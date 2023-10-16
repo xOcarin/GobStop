@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1370721615500791710}
   - component: {fileID: 4238628417638924370}
+  - component: {fileID: 1147258299516129969}
   m_Layer: 0
   m_Name: Professor
   m_TagString: Professor
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 991e19cca7fc39c4eabf08b7eea14b33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1147258299516129969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299862328216697805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7b6293674b81f41ac720fa719c61e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnedCount: 0
+  gobPrefab: {fileID: 7164001307479064495, guid: 04fe00b302e51ad47a44605c0354fc5f, type: 3}
+  Gob: {fileID: 0}
